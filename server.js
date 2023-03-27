@@ -25,13 +25,13 @@ app.get('/app/', (req, res) => {
 });
 
 // Endpoint /app/rps/ that returns {"player":"(rock|paper|scissors)"}
-app.get('app/rps/',(req,res) => {
-  res.status(200).send(rps());
+app.get('/app/rps/', (req, res) => {
+	res.status(200).send(rps());
 });
 
 // Endpoint /app/rpsls/ that returns {"player":"(rock|paper|scissors|lizard|spock)"}
-app.get('app/rpsls/',(req,res) => {
-  res.status(200).send(rpsls());
+app.get('/app/rpsls/', (req, res) => {
+	res.status(200).send(rps());
 });
 
 // Endpoint /app/rps/play/, takes shot=(rock|paper|scissors) (URLEncoded)
@@ -65,7 +65,7 @@ app.get('/app/rpsls/play/:shot', (req, res) => {
 });
 
 // Default Endpoint
-app.use('*', (req, res) => {
+app.get('*', (req, res) => {
   res.status(404).send('404 NOT FOUND');
 });
 
