@@ -33,12 +33,12 @@ app.get('app/rpsls/',(req,res) => {
 });
 
 // Endpoint /app/rps/play/, takes shot=(rock|paper|scissors) (URLEncoded)
-app.get('/app/rps/play', (req, res) => {
+app.get('/app/rps/play/', (req, res) => {
 	res.status(200).send(rps(req.query.shot));
 });
 
 // Endpoint /app/rps/play/, takes shot=(rock|paper|scissors) (JSON)
-app.get('/app/rps/play/', (req, res) => {
+app.get('/app/rpsls/play/', (req, res) => {
 	res.status(200).send(rps(req.body.shot));
 });
 
