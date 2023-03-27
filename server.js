@@ -14,6 +14,8 @@ const args = minimist(process.argv.slice(2));
 // Setting up express
 import express from "express";
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Defining port
 const PORT = args.port || 5000;
 
@@ -38,7 +40,7 @@ app.get('/app/rps/play/', (req, res) => {
 });
 
 // Endpoint /app/rps/play/, takes shot=(rock|paper|scissors) (JSON)
-app.get('/app/rpsls/play/', (req, res) => {
+app.get('/app/rps/play/', (req, res) => {
 	res.status(200).send(rps(req.body.shot));
 });
 
@@ -64,7 +66,7 @@ app.get('/app/rpsls/play/:shot', (req, res) => {
 
 // Default Endpoint
 app.use('*', (req, res) => {
-  res.status(404).send('404 Not Found');
+  res.status(404).send('404 NOT FOUND');
 });
 
 // Start the server
